@@ -67,7 +67,7 @@ function myTextFieldButtons_OnClick(GUIControl *control, MouseButton button)
 }
 ```
 
-## Licensing
+## Licensing and Credits
 This code is offered under multiple licenses. Choose whichever one you like.
 
 You may use it under the MIT license:
@@ -78,3 +78,5 @@ You may also use it under the Creative Commons Attribution 4.0 International Lic
 
 You may also use it under the Artistic License 2.0:
 - https://opensource.org/licenses/Artistic-2.0
+
+In game credits, the preferred style is "TextField module by Snarky" or "TextField module by Gunnar Harboe", but you can adapt it as you like to the overall style of credit (or leave it out: no in-game credit is required, though it is appreciated).
