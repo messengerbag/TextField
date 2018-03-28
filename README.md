@@ -1,10 +1,10 @@
 # TextField
 TextField is a script module for [Adventure Game Studio (AGS)](http://www.adventuregamestudio.co.uk/). It requires AGS v3.4.0 or higher.
 
-This module provides one-line text input fields, to replace the built-in AGS TextInput control. Its main benefit is that it allows you to position the text cursor (caret) freely within the input string, using either arrow keys or mouse. It also has a notion of focus, which makes it easier to have GUIs with multiple text fields. Finally, you can customize the appearance and behavior of the text fields somewhat.
+This module provides one-line text input fields, to replace the built-in AGS `TextInput` control. Its main benefit is that it allows you to position the text cursor (caret) freely within the input string, using either arrow keys or mouse. It also has a notion of focus, which makes it easier to have GUIs with multiple text fields. Finally, you can customize the appearance and behavior of the text fields somewhat.
 
 ## How To Use
-To use, you have to set up a GUI Button for each text field you want. The position, size, font, and text color of the button will be used to format the text field. Then you have to initialize the text field using TextField.Create(), providing the GUI button as an argument, like so:
+To use, you have to set up a GUI Button for each text field you want. The position, size, font, and text color of the button will be used to format the text field. Then you have to initialize the text field using `TextField.Create()`, providing the GUI button as an argument, like so:
 
 ```adventure-game-studio
 TextField* myTextField = TextField.Create(myButton);
