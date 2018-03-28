@@ -10,7 +10,7 @@ To use, you have to set up a GUI Button for each text field you want. The positi
 TextField* myTextField = TextField.Create(myButton);
 ```
 
-You would typically do this in `game_start()`, and in any case before the text field is displayed. After you've created the text field, don't set the button properties directly!
+You would typically do this in `game_start()`, and in any case before the text field is displayed. **After you've created the text field, don't set the button properties directly!**
 
 You also need to hook up the events. Because we lose the TextInput OnActivate event, we have to handle activating the field (typically by pressing Return) a little differently. There are two alternatives: You can handle it yourself in the game's general `on_key_press()` function:
 
@@ -71,10 +71,10 @@ function myTextFieldButtons_OnClick(GUIControl *control, MouseButton button)
 This code is offered under multiple licenses. Choose whichever one you like.
 
 You may use it under the MIT license:
-https://opensource.org/licenses/MIT
+- https://opensource.org/licenses/MIT
 
-You may also use it under the Creative Commons Attribution 4.0 International License.
-https://creativecommons.org/licenses/by/4.0/
+You may also use it under the Creative Commons Attribution 4.0 International License:
+- https://creativecommons.org/licenses/by/4.0/
 
-You may also use it under the Artistic License 2.0
-https://opensource.org/licenses/Artistic-2.0
+You may also use it under the Artistic License 2.0:
+- https://opensource.org/licenses/Artistic-2.0
