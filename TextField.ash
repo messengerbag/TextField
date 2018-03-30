@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * TEXT FIELD MODULE - Header                                                              *
- * by Gunnar Harboe (Snarky), v1.1.0                                                       *
+ * by Gunnar Harboe (Snarky), v1.2.0                                                       *
  *                                                                                         *
  * Copyright (c) 2018 Gunnar Harboe                                                        *
  *                                                                                         *
