@@ -1,8 +1,8 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * TEXT FIELD MODULE - Header                                                              *
- * by Gunnar Harboe (Snarky), v1.2.0                                                       *
+ * by Gunnar Harboe (Snarky), v1.3.0                                                       *
  *                                                                                         *
- * Copyright (c) 2018 Gunnar Harboe                                                        *
+ * Copyright (c) 2018, 2019 Gunnar Harboe                                                  *
  *                                                                                         *
  *                                                                                         *
  * This module provides a one-line text input field, to replace the built-in AGS           *
@@ -85,6 +85,20 @@
  *                                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* -- Module housekeeping -- */
+#ifndef __TEXTFIELD_MODULE__
+#define __TEXTFIELD_MODULE__
+
+#define TEXTFIELD_VERSION "v1.3.0"
+#define TEXTFIELD_VERSION_01_03_00
+
+// Comment out next line to disable module
+#define ENABLE_TEXTFIELD
+
+#ifdef ENABLE_TEXTFIELD
+
+/* -- The module itself -- */
+
 #define TEXTFIELD_DEFAULT_COUNT 4   // How many text fields are created by default. If you have many, increasing this number may slightly improve startup performance
 #define TEXTFIELD_BORDER_WIDTH 1    // How wide the border of the text field is
 #define TEXTFIELD_CARET_WIDTH 1     // How wide the text cursor/caret is
@@ -126,6 +140,8 @@ managed struct TextField
   import attribute FontType Font;
   /// Get or set the text color of this TextField (also used for the text cursor and border)
   import attribute int TextColor;
+  /// Get or set the selection color of this TextField
+  import attribute int SelectionColor;
   /// Get or set the max String length of this TextField, 0 for unlimited (content will be truncated to MaxLength)
   import attribute int MaxLength;
   
@@ -135,11 +151,17 @@ managed struct TextField
   import readonly attribute bool HasFocus;
   /// Get or set the current text cursor position, as a String index.
   import attribute int CaretIndex;
+  /*
+  /// Get or set the start of the current text selection, as a String index.
+  import attribute int SelectionStartIndex;
+  */
   
+  /// Get the index in the text corresponding to the x,y coordinates. (-1 if outside the TextField)
+  import int TextIndexOfPoint(int x, int y);
   /// Set whether this TextField should have focus. Returns whether focus was set.
   import bool SetFocus(bool giveFocus=true);
-  /// Position the text cursor to the x,y position. Returns whether the cursor was positioned.
-  import bool PositionCaret(int x, int y);
+  /// Position the text cursor to the x,y coordinates. Returns whether the cursor was positioned.
+  import bool PositionCaret(int x, int y,  bool doSelect=false);
    
   /// Handle a keypress (default behavior: add/delete text input or move text cursor). Returns whether keypress was handled.
   import bool HandleKeyPress(eKeyCode keycode);
@@ -158,6 +180,9 @@ managed struct TextField
   protected int _caretIndex;
   protected int _caretX;
   protected int _caretY;
+  protected int _selectionColor;
+  protected int _selectionStartIndex;
+  protected int _selectionStartX;
   protected int _maxLength;
   protected bool _enabled;
   protected int _borderTransparency;
@@ -165,7 +190,7 @@ managed struct TextField
   
   
   // Input type as bit field (Numeric, Alphabetic, Alphanumeric, Text)
-  
-  // SelectionStart index
-  // SelectionStart x
 };
+
+#endif // ENABLE_TEXTFIELD
+#endif // __TEXTFIELD_MODULE__
